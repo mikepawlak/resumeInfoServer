@@ -18,14 +18,19 @@ cron.schedule("30 1 * * *", async () => {
 });
 
 app.use(helmet());
-app.get("/v1/profile", async (req, res) => {
-  if (cache.getProfile()) {
-    res.send(cache.getProfile());
-  } else {
-    const profile = await scraper.getProfile();
-    cache.setProfile(profile);
-    res.send(profile);
-  }
-});
+
+app
+  .get("/", (req, res) => {
+    res.send(":D");
+  })
+  .get("/v1/profile", async (req, res) => {
+    if (cache.getProfile()) {
+      res.send(cache.getProfile());
+    } else {
+      const profile = await scraper.getProfile();
+      cache.setProfile(profile);
+      res.send(profile);
+    }
+  });
 
 app.listen(port, () => console.log(`LknApi app listening on port ${port}!`));
