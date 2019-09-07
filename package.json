@@ -1,0 +1,22 @@
+{
+  "name": "mylinkedininfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "helmet": "^3.21.0",
+    "node-cache": "^4.2.1",
+    "node-cron": "^2.0.3",
+    "nodemon": "^1.19.2",
+    "scrapedin": "^1.0.8"
+  }
+}
