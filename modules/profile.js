@@ -13,21 +13,14 @@ module.exports = {
   },
   positions: [
     {
-      title: "Fleet Farm",
+      title: "Development Lead",
       date1: "Jul 2019 – Present",
-      date2: "3 mos",
-      roles: [
-        {
-          title: "Development Lead",
-          date1: "Jul 2019 – Present",
-          date2: "3 mos"
-        },
-        {
-          title: "Software Engineer",
-          date1: "Oct 2018 – Jul 2019",
-          date2: "10 mos"
-        }
-      ]
+      company: "Fleet Farm"
+    },
+    {
+      title: "Software Engineer",
+      date1: "Oct 2018 – Jul 2019",
+      company: "Fleet Farm"
     },
     {
       title: "Senior Website Support Developer",
