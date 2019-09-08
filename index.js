@@ -11,11 +11,13 @@ const scraper = new Scraper("https://www.linkedin.com/in/pawlak-mike/");
 const Cache = require("./modules/cache");
 const cache = new Cache();
 
-cron.schedule("30 1 * * *", async () => {
-  cache.deleteProfile();
-  const profile = await scraper.getProfile();
-  cache.setProfile(profile);
-});
+const profile = require("./modules/profile");
+
+// cron.schedule("30 1 * * *", async () => {
+//   cache.deleteProfile();
+//   const profile = await scraper.getProfile();
+//   cache.setProfile(profile);
+// });
 
 app.use(helmet());
 
@@ -24,13 +26,16 @@ app
     res.send(":D");
   })
   .get("/v1/profile", async (req, res) => {
-    if (cache.getProfile()) {
-      res.send(cache.getProfile());
-    } else {
-      const profile = await scraper.getProfile();
-      cache.setProfile(profile);
-      res.send(profile);
-    }
+    // if (cache.getProfile()) {
+    //   res.send(cache.getProfile());
+    // } else {
+    //   const profile = await scraper.getProfile();
+    //   cache.setProfile(profile);
+    //   res.send(profile);
+    // }
+
+    //until I can figure out how to get this scraper working on headless chrome, I am just returning the object generated from my dev instance
+    res.json(profile);
   });
 
 app.listen(port, () => console.log(`LknApi app listening on port ${port}!`));
